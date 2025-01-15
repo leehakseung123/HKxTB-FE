@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>텍스트나 콘텐츠의 정렬</title>
+    <!-- 수평정렬 : text-align -->
+    <!-- 수직정렬 : vertical-align -->
+    <style>
+      /* vertixal-align */
+      /* vertical-align은 주로 인라인요소와 테이블셀에 적용 */
+      div {
+        border: 1px solid blue;
+      }
+      .box {
+        border: 1px solid red;
+      }
+      .text-left {
+        text-align: left;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .text-right {
+        text-align: right;
+      }
+      .text-justify {
+        text-align: justify;
+      }
+      .box2 {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border: 1px solid red;
+      }
+      .baseline {
+        /* baseline 기본값 */
+        vertical-align: baseline;
+      }
+      .top {
+        vertical-align: top;
+      }
+      .middle {
+        vertical-align: middle;
+      }
+      .bottom {
+        vertical-align: bottom;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box text-left">왼쪽 정렬</div>
+    <div class="box text-center">가운데 정렬</div>
+    <div class="box text-right">오른쪽 정렬</div>
+    <div class="box text-justify">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
+      dignissimos magnam culpa repellat. Quidem vitae impedit corporis
+      consequatur nemo culpa! Impedit modi a facilis, inventore nam delectus
+      similique commodi iste?
+    </div>
+    <div class="box text-left">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi molestias
+      libero natus vero a incidunt dicta impedit earum aliquid amet enim officia
+      doloremque aperiam molestiae quis, unde fugiat, consequuntur mollitia.
+    </div>
+    <!-- vertical-align -->
+    <div>
+      <span class="box2 baseline"></span>Baseline
+      <span class="box2 top"></span>Top <span class="box2 middle"></span>Middle
+      <span class="box2 bottom"></span>Bottom
+    </div>
+  </body>
+</html>

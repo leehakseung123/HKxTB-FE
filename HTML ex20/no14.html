@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>14번 문제</title>
+  </head>
+  <body>
+    <form action="submit_survey.php" method="post">
+      <fieldset>
+        <h1>설문조사</h1>
+        <fieldset>
+        <!-- 성별과 나이 입력 -->
+        <p>성별과 나이를 입력하세요.</p>
+        <label>성별:</label>
+        <input type="radio" id="male" name="gender" value="male" />
+        <label for="male">남자</label>
+        <input type="radio" id="female" name="gender" value="female" />
+        <label for="female">여자</label>
+        <br /><br />
+        <label for="age">나이:</label>
+        <input type="number" id="age" name="age" min="0" max="100" />
+        <br /><br />
+        </fieldset>
+        <br /><br />
+        <!-- 관심 분야 선택 -->
+        <fieldset>
+        <legend>관심 분야를 선택하세요.(1개 이상)</legend>
+        <input
+          type="checkbox"
+          id="digital_content"
+          name="interest[]"
+          value="digital_content"
+        />
+        <label for="digital_content">디지털 콘텐츠</label>
+        <input
+          type="checkbox"
+          id="web_programming"
+          name="interest[]"
+          value="web_programming"
+        />
+        <label for="web_programming">웹프로그래밍</label>
+        <input
+          type="checkbox"
+          id="database"
+          name="interest[]"
+          value="database"
+        />
+        <label for="database">데이터베이스</label>
+        <input
+          type="checkbox"
+          id="electronics"
+          name="interest[]"
+          value="electronics"
+        />
+        <label for="electronics">전자출판</label>
+        </fieldset>
+        <br /><br />
+
+        <!-- 세미나 만족도 평가 -->
+         <fieldset>
+        <legend>다음 문항에 대해 5점 척도로 답하세요.</legend>
+        <label for="q1">본 세미나의 주제는 만족스러운가?</label>
+        1<input type="range" id="q1" name="q1" min="1" max="5" />5
+        <br /><br />
+        <label for="q2">본 세미나의 초청 강사는 만족스러운가?</label>
+        1<input type="range" id="q2" name="q2" min="1" max="5" />5
+        <br /><br />
+        <label for="q3">본 세미나의 강의 시간은 적당한가?</label>
+        1<input type="range" id="q3" name="q3" min="1" max="5" />5
+        <br /><br />
+      </fieldset>
+      <br /><br />
+        <!-- 기타 의견 -->
+         <fieldset>
+        <p>기타 의견 사항</p>
+        <textarea
+          id="comments"
+          name="comments"
+          rows="5"
+          cols="50"
+          placeholder="의견을 적으세요"
+        ></textarea>
+      </fieldset>
+        <br /><br />
+
+        <!-- 버튼 -->
+        <button type="submit">확인</button>
+        <button type="reset">취소</button>
+      
+    </form>
+  </body>
+</html>

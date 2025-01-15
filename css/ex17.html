@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>연습문제4</title>
+    <!-- ex17 -->
+    <!-- 1. 아이템1에 마우스 hover시 글자색 red로 -->
+    <!-- 2. 아이템2에 마우스 click시 글자색 blue로 -->
+    <!-- 3. 입력1에 포커스가 되면 배경색을 green으로 -->
+    <!-- 4. nth-child를 이용하여, 아이템1의 색상을 red로 -->
+    <!-- 5. 짝수번째 아이템의 배경색을 aqua로 -->
+    <style>
+      li:first-child:hover {
+        color: red;
+      }
+      li:nth-child(2):active {
+        color: blue;
+      }
+
+      input[type="text"]:nth-child(6):focus {
+        background-color: green;
+      }
+      li:nth-child(1) {
+        color: red;
+      }
+      li:nth-of-type(2n) {
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>아이템1</li>
+      <li>아이템2</li>
+      <li>아이템3</li>
+      <li>아이템4</li>
+      <li>아이템5</li>
+      <input type="text" value="입력1" />
+      <input type="text" value="입력2" />
+      <input type="text" value="입력3" />
+    </ul>
+    <brbr> </brbr>
+    <p>
+      부모 자식 전체를 대상으로 특정 순서를 찾아야 한다면 → :nth-child() 같은
+      태그만 놓고 순서를 매겨 정확히 몇 번째인지 찾아야 한다면 → :nth-of-type()
+      또는 만약 ul 안의 여러 li들을 홀짝으로 스타일링하고 싶다면 →
+      li:nth-of-type(even), li:nth-of-type(odd) 부모의 모든 자식 중에서 첫 번째
+      요소는 어떤 태그이든지 스타일링하고 싶다면 → :nth-child(1) (또는
+      :first-child)
+    </p>
+  </body>
+</html>

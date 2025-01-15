@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>영화 화면</title>
+    <style>
+      body {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between; /* 왼쪽과 오른쪽을 양 끝으로 정렬 */
+        align-items: center;
+        width: 100%; /* 헤더 너비를 페이지 전체로 확장 */
+        padding: 10px;
+      }
+      .header a {
+        color: black;
+        text-decoration: none;
+      }
+      .header a:hover {
+        text-decoration: underline;
+      }
+      #header-left {
+        display: flex;
+        gap: 10px;
+      }
+
+      #header-right {
+        display: flex;
+        gap: 10px;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+      }
+      .nav1 {
+        display: flex;
+        gap: 20px;
+      }
+      .nav1 img {
+        width: 40px;
+        height: 40px;
+      }
+      .nav2 {
+        display: flex;
+        gap: 40px;
+      }
+      .nav2 a {
+        color: black;
+        text-decoration: none;
+        position: relative;
+      }
+      .nav2 a:hover::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 100%;
+        height: 4px; /* 밑줄 굵기 */
+        background-color: skyblue; /* 밑줄 색상 */
+      }
+      .nav3 img {
+        width: 120px;
+        height: auto;
+       
+      }
+      .nav4 {
+        display: flex;
+        gap: 40px;
+      }
+
+      .nav4 a {
+        color: black;
+        text-decoration: none;
+        position: relative;
+      }
+      .nav4 a:hover::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 100%;
+        height: 4px; /* 밑줄 굵기 */
+        background-color: skyblue; /* 밑줄 색상 */
+      }
+      .nav5 {
+        display: flex;
+        gap: 20px;
+      }
+      .nav5 img {
+        width: 40px;
+        height: 40px;
+      }
+      .hr {
+        position: relative;
+        top: 10px; /* 수평선의 수직 위치 */
+        left : -6000px;
+        width: 10000vw; /* 뷰포트 전체 너비 */
+        height: 1.5px;
+        background-color: purple;
+        border: none;
+        margin: 0;
+        z-index: 100; /* 다른 요소 위에 표시 */
+        margin-bottom: 10px;
+      }
+      .nav-bar {
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;  /* 뷰포트 너비의 절반만큼 왼쪽으로 이동 */
+  width: 100vw;        /* 뷰포트 전체 너비 */
+  height: 40px;
+  background-color: rgba(211, 211, 211, 0.628);
+}
+.nav-bar-container {
+  display: flex;
+  align-items: center; /* 수직 중앙 정렬 */
+  margin-left: 320px;  /* 기존 설정 그대로 */
+}
+.nav-bar-container p {
+  margin-top: 10px;       /* 기본 마진 제거 */
+  padding: 0;      /* 기본 패딩 제거 */
+  display: flex;   /* 필요 시 추가 */
+  align-items: center; /* 추가적인 중앙 정렬 보장 */
+}
+
+      .contain {
+        padding-top: 40px;
+      }
+      .contain h2 {
+        margin-top: 10px;
+        margin-bottom: 30px;
+      }
+      .nav-bar img {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* 탭 메뉴 스타일 */
+      .tab-menu {
+        display: flex;
+        width: 100%;
+      }
+      .tab-label {
+        flex: 1;
+        text-align: center;
+        padding: 10px 0;
+        background-color: #f9f9f9;
+        margin-right: px;
+        border: 1px solid rgba(211, 211, 211, 0.552);
+        border-bottom: 1px solid purple;
+      }
+      .tab-label:last-child {
+        margin-right: 0;
+      }
+
+      .tab-label:hover {
+        background-color: #eee;
+      }
+     
+     /* Tab1 ~ Tab5 모두 동일한 스타일 적용 */
+#tab1:checked ~ .tab-menu label[for="tab1"],
+#tab2:checked ~ .tab-menu label[for="tab2"],
+#tab3:checked ~ .tab-menu label[for="tab3"],
+#tab4:checked ~ .tab-menu label[for="tab4"],
+#tab5:checked ~ .tab-menu label[for="tab5"] {
+  border: 1px solid purple;
+  border-bottom: 1px solid white;
+  background-color: white;
+}
+      /* 서치 메뉴 */
+      .search {
+        display: flex;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+
+      /* 토글 스위치 */
+      .toggle-container {
+        display: flex;
+
+        align-items: center;
+        gap: 0px;
+        margin-right: 1px;
+        margin-bottom: 10px;
+      }
+
+      /* 토글 스위치 컨테이너 */
+      .toggle-switch {
+        position: relative;
+        display: flex;
+        width: 60px;
+        height: 20px;
+        margin-right: 0;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* 실제 체크박스는 숨기기 */
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .toggle-text {
+        margin-left: 10px;
+        position: relative;
+        top: 8px;
+      }
+      /* 슬라이더 스타일 */
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 34px;
+      }
+
+      /* 슬라이더 내 원 (토글 버튼) */
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 15px;
+        width: 15px;
+        left: 3px;
+        right: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+
+      /* 체크박스가 체크된 상태일 때의 스타일 */
+      .toggle-switch input:checked + .slider {
+        background-color: green;
+      }
+
+      .toggle-switch input:checked + .slider:before {
+        transform: translateX(35px);
+      }
+
+      input[type="radio"] {
+        display: none;
+      }
+
+      .search-tool {
+        margin-left: auto;
+        width: 300px;
+        display: flex;
+        justify-content: flex-end;
+        padding: 5px;
+      }
+      .search-result {
+        margin-left: 10px;
+        position: relative;
+        top: 8px;
+      }
+      #search-input {
+        width: 50%;
+        height: 50%;
+        padding: 10px 10px 10px 10px;
+        border: none;
+        outline: 1px solid gray;
+        font-size: 14px;
+        border-radius: 1px;
+      }
+
+      /* 검색 버튼 스타일 */
+      #search-button {
+        position: relative;
+        right: 7%;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .tab-content {
+  display: none;
+}
+
+/* 라디오 버튼이 체크된 경우에 해당 콘텐츠 영역만 표시 */
+#tab1:checked ~ #box-office,
+#tab2:checked ~ #pre,
+#tab3:checked ~ #single,
+#tab4:checked ~ #film-society,
+#tab5:checked ~ #classic-society {
+  display: block;
+}
+  
+
+/* 이미지들을 수평으로 정렬하기 위한 컨테이너 */
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.movie-list img {
+  /* (100% - 3*15px) 나누기 4칸 */
+  flex: 0 0 calc( (100% - 45px) / 4 );
+  width: calc( (100% - 45px) / 4 );
+  height: auto;
+  object-fit: cover; /* (선택) 이미지가 잘려도 꽉 차게 하고 싶다면 사용 */
+}
+
+
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div id="header-left">
+        <a href="#">VIP LOUNGE</a>
+        <a href="#">멤버십</a>
+        <a href="#">고객센터</a>
+      </div>
+      <div id="header-right">
+        <a href="#">로그인</a>
+        <a href="#">회원가입</a>
+        <a href="#">빠른예매</a>
+      </div>
+    </div>
+    <div class="nav">
+      <div class="nav1">
+        <a href="#"><img src="menu.png" /></a>
+        <a href="#"><img src="mag.png" /></a>
+      </div>
+      <div class="nav2">
+        <a href="#">영화</a>
+        <a href="#">예매</a>
+        <a href="#">극장</a>
+      </div>
+      <div class="nav3">
+        <img src="LOGO.png" alt="" />
+      </div>
+      <div class="nav4">
+        <a href="#">이벤트</a>
+        <a href="#">스토어</a>
+        <a href="#">혜택</a>
+      </div>
+      <div class="nav5">
+        <a href="#"><img src="calendar.png" alt="" /></a>
+        <a href="#"><img src="user.png" alt="" /></a>
+      </div>
+    </div>
+    <!-- -----------------------수  평  선------------- -->
+
+    <div class="horizen"><hr class="hr" /></div>
+
+    <div class="nav-bar">
+      <div class="nav-bar-container">
+        <p><img src="home.png" alt="" /> > 영화 > 전체영화</p>
+      </div>
+    </div>
+
+    <div class="contain">
+      <h2>전체영화</h2>
+
+      <!-- 탭 메뉴 (라벨들) -->
+
+      
+        <!-- 라디오 버튼들을 최상위에 배치 -->
+        <input type="radio" id="tab1" name="tab" checked />
+        <input type="radio" id="tab2" name="tab" />
+        <input type="radio" id="tab3" name="tab" />
+        <input type="radio" id="tab4" name="tab" />
+        <input type="radio" id="tab5" name="tab" />
+      
+        <!-- 탭 메뉴 (라벨들) -->
+        <div class="tab-menu">
+          <label for="tab1" class="tab-label">박스오피스</label>
+          <label for="tab2" class="tab-label">상영예정작</label>
+          <label for="tab3" class="tab-label">단독</label>
+          <label for="tab4" class="tab-label">필름소사이어티</label>
+          <label for="tab5" class="tab-label">클래식소사이어티</label>
+        </div>
+      
+        
+      
+      
+
+    <!-- 검색 -->
+    <div class="search">
+      <label class="toggle-switch">
+        <input type="checkbox" />
+        <span class="slider"></span>
+      </label>
+      <span class="toggle-text">개봉작만</span>
+
+      <div class="search-result">00개의 영화가 검색되었습니다.</div>
+
+      <div class="search-tool">
+        <input type="text" id="search-input" placeholder="영화명 검색" />
+        <button id="search-button">
+          <img src="mag.png" alt="검색" width="16" height="16" />
+        </button>
+      </div>
+    </div>
+    <!-- 탭 콘텐츠들 -->
+    <div class="tab-content box-office" id="box-office">
+      <h2>박스오피스</h2>
+      <!-- 수평 정렬을 위한 컨테이너 -->
+      <div class="movie-list">
+        <img src="boxoffice.png" alt="영화 포스터 1" />
+        <img src="boxoffice.png" alt="영화 포스터 2" />
+        <img src="boxoffice.png" alt="영화 포스터 3" />
+        <img src="boxoffice.png" alt="영화 포스터 4" />
+        <img src="boxoffice.png" alt="영화 포스터 5" />
+        <img src="boxoffice.png" alt="영화 포스터 6" />
+        <img src="boxoffice.png" alt="영화 포스터 7" />
+        <img src="boxoffice.png" alt="영화 포스터 8" />
+      </div>
+    </div>
+    <div class="tab-content pre" id="pre">
+      <h2>상영예정작</h2>
+      <div class="movie-list">
+        <img src="pre.png" alt="영화 포스터 1" />
+        <img src="pre.png" alt="영화 포스터 2" />
+        <img src="pre.png" alt="영화 포스터 3" />
+        <img src="pre.png" alt="영화 포스터 4" />
+        <img src="pre.png" alt="영화 포스터 5" />
+        <img src="pre.png" alt="영화 포스터 6" />
+        <img src="pre.png" alt="영화 포스터 7" />
+        <img src="pre.png" alt="영화 포스터 8" />
+      </div>
+    </div>
+    <div class="tab-content single" id="single">
+      <h2>단독</h2>
+      <div class="movie-list">
+        <img src="single.png" alt="영화 포스터 1" />
+        <img src="single.png" alt="영화 포스터 2" />
+        <img src="single.png" alt="영화 포스터 3" />
+        <img src="single.png" alt="영화 포스터 4" />
+        <img src="single.png" alt="영화 포스터 5" />
+        <img src="single.png" alt="영화 포스터 6" />
+        <img src="single.png" alt="영화 포스터 7" />
+        <img src="single.png" alt="영화 포스터 8" />
+      </div>
+    </div>
+    <div class="tab-content film-society" id="film-society">
+      <h2>필름소사이어티</h2>
+      <div class="movie-list">
+        <img src="film.png" alt="영화 포스터 1" />
+        <img src="film.png" alt="영화 포스터 2" />
+        <img src="film.png" alt="영화 포스터 3" />
+        <img src="film.png" alt="영화 포스터 4" />
+        <img src="film.png" alt="영화 포스터 5" />
+        <img src="film.png" alt="영화 포스터 6" />
+        <img src="film.png" alt="영화 포스터 7" />
+        <img src="film.png" alt="영화 포스터 8" />
+      </div>
+    </div>
+    <div class="tab-content classic-society" id="classic-society">
+      <h2>클래식소사이어티</h2>
+      <div class="movie-list">
+        <img src="classic.png" alt="영화 포스터 1" />
+        <img src="classic.png" alt="영화 포스터 2" />
+        <img src="classic.png" alt="영화 포스터 3" />
+        <img src="classic.png" alt="영화 포스터 4" />
+        <img src="classic.png" alt="영화 포스터 5" />
+        <img src="classic.png" alt="영화 포스터 6" />
+        <img src="classic.png" alt="영화 포스터 7" />
+        <img src="classic.png" alt="영화 포스터 8" />
+      </div>
+    </div>
+  </body>
+</html>

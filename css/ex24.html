@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>24 연습문제</title>
+    <!-- 1.표 전체와 각 셀의 테두리를 1px짜리 검은색 실선으로
+2.표 테두리와 셀 테두리를 한줄로 표시
+3.표의 설명 글(캡션)을 표의 오른쪽 아래로 옮김
+4.셀의 내부 여배(패딩)을 10px로 지정 padding: 10px
+5. 제목 셀만 왼쪽으로 정렬
+6. 마지막 2022년 열의 배경색을 #e5f6f6으로 지정 -->
+    <style>
+      body {
+        text-align: center;
+      }
+      /* 1.표 전체와 각 셀의 테두리를 1px짜리 검은색 실선 */
+      /* 2. 표 테두리와 셀 테두리를 한줄로 */
+      table {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      /* 4.셀의 내부 여백(패딩)을 10px로 지정 */
+      thead th,
+      tbody td {
+        border: 1px solid black;
+        padding: 10px;
+      }
+
+      /* 5. 제목 셀만 왼쪽으로 정렬 */
+      th {
+        text-align: left;
+      }
+
+      /* 6. 마지막 2022년 열의 배경색을 #e5f6f6으로 지정 */
+      th:nth-child(5),
+      td:nth-child(5) {
+        background-color: #e5f6f6;
+      }
+
+      caption {
+        caption-side: bottom;
+        text-align: right;
+        font-size: 0.8rem;
+      }
+      table tr > td:first-child,
+      table tr > th:first-child {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>지표</th>
+          <th>2019</th>
+          <th>2020</th>
+          <th>2021</th>
+          <th>2022</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>가구수</td>
+          <td>20,891,348</td>
+          <td>21,484,785</td>
+          <td>22,022,753</td>
+          <td>22,383,187</td>
+        </tr>
+        <tr>
+          <td>1인가구</td>
+          <td>6,147,516</td>
+          <td>6,643,354</td>
+          <td>7,165,788</td>
+          <td>7,502,350</td>
+        </tr>
+      </tbody>
+      <caption>
+        출처: 통계청 100대 지표
+      </caption>
+    </table>
+  </body>
+</html>

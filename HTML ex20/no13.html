@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>13번 문제</title>
+  </head>
+  <body>
+    <form action="submit_booking.php" method="post">
+      <h1>레스토랑 예약하기</h1>
+
+      <!-- 예약자 정보 -->
+      <fieldset>
+        <legend>예약자 정보</legend>
+        <label for="name">예약자:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="예약자 이름"
+          required
+        />
+        <br />
+
+        <label for="contact">연락처:</label>
+        <input
+          type="tel"
+          id="contact"
+          name="contact"
+          placeholder="000-0000-0000"
+          required
+        />
+        <br />
+
+        <label for="people">예약인원:</label>
+        <select id="people" name="people">
+          <option value="1">1명</option>
+          <option value="2" selected>2명</option>
+          <option value="3">3명</option>
+          <option value="4">4명</option>
+          <option value="5">5인 이상</option>
+        </select>
+      </fieldset>
+
+      <br />
+
+      <!-- 날짜 및 시간 선택 -->
+      <fieldset>
+        <legend>일자 선택 및 시간 선택</legend>
+        <label for="date">날짜:</label>
+        <input type="date" id="date" name="date" required />
+
+        <label for="time">시간:</label>
+        <input type="time" id="time" name="time" required />
+      </fieldset>
+
+      <br />
+
+      <button type="submit">예약</button>
+      <button type="reset">취소</button>
+    </form>
+  </body>
+</html>

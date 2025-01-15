@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>구글웹폰트 적용</title>
+    <!-- 폰트 적용하는법 -->
+    <!-- 1. 사용자pc에 폰트 설치되어 있는 경우에만 적용 -->
+    <!-- 2. 폰트파일(ttf, otf) 함께 배포 -->
+    <!-- 3.인터넷 상의 폰트 파일을 사용 -->
+    <!-- 구글웹폰트 사이트 이용 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      h1 {
+        font-family: "Nanum Gothic", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Tenada";
+        src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2")
+          format("woff2");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      h2 {
+        font-family: "Tenada";
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>대한민국 홍길동 1234!@#$</h1>
+    <h2>홍길동 Good Afternoon~ Korea~123345!@##$</h2>
+  </body>
+</html>

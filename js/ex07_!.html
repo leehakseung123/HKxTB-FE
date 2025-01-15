@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>73번 연습문제 - Tailwind CSS</title>
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="m-0 p-0 box-border text-[32px] font-bold">
+    <!-- flex 컨테이너 -->
+    <div class="flex flex-wrap">
+      <!-- 헤더 -->
+      <!-- 모바일: w-full, h-100, order-1 -->
+      <!-- 태블릿(md): w-4/5, order-1, h-100 -->
+      <!-- PC(lg): w-full, order-none, h-100 -->
+      <div
+        class="bg-[greenyellow] flex items-center justify-center w-full h-[100px] order-[1] md:w-[80%] md:order-[1] /* 태블릿 */ lg:w-full lg:order-none /* PC */"
+      >
+        <p>헤더</p>
+      </div>
+
+      <!-- 섹션1 -->
+      <!-- 모바일: w-1/2, h-200, order-2 -->
+      <!-- 태블릿(md): w-[20%], h-100, order-3 -->
+      <!-- PC(lg): w-1/2, h-200, order-none -->
+      <div
+        class="bg-[palevioletred] flex items-center justify-center w-1/2 h-[200px] order-[2] md:w-[100%] md:h-[100px] md:order-[3] lg:w-1/2 lg:h-[200px] lg:order-none"
+      >
+        <p>섹션1</p>
+      </div>
+
+      <!-- 섹션2 -->
+      <!-- 모바일: w-1/2, h-200, order-3 -->
+      <!-- 태블릿(md): w-full, h-100, order-4 -->
+      <!-- PC(lg): w-1/2, h-200, order-none -->
+      <div
+        class="bg-[violet] flex items-center justify-center w-1/2 h-[200px] order-[3] md:w-full md:h-[100px] md:order-[4] lg:w-1/2 lg:h-[200px] lg:order-none"
+      >
+        <p>섹션2</p>
+      </div>
+
+      <!-- 섹션3 -->
+      <!-- 모바일: w-1/2, h-200, order-4 -->
+      <!-- 태블릿(md): w-full, h-100, order-5 -->
+      <!-- PC(lg): w-1/2, h-200, order-none -->
+      <div
+        class="bg-[skyblue] flex items-center justify-center w-1/2 h-[200px] order-[4] md:w-full md:h-[100px] md:order-[5] lg:w-1/2 lg:h-[200px] lg:order-none"
+      >
+        <p>섹션3</p>
+      </div>
+
+      <!-- 섹션4 -->
+      <!-- 모바일: w-1/2, h-200, order-5 -->
+      <!-- 태블릿(md): w-full, h-100, order-6 -->
+      <!-- PC(lg): w-1/2, h-200, order-none -->
+      <div
+        class="bg-[aqua] flex items-center justify-center w-1/2 h-[200px] order-[5] md:w-full md:h-[100px] md:order-[6] lg:w-1/2 lg:h-[200px] lg:order-none"
+      >
+        <p>섹션4</p>
+      </div>
+
+      <!-- 광고 -->
+      <!-- 모바일: w-3/10, h-100, order-6 -->
+      <!-- 태블릿(md): w-[20%], h-100, order-2 -->
+      <!-- PC(lg): w-1/2, h-100, order-none -->
+      <div
+        class="bg-[plum] flex items-center justify-center w-[30%] h-[100px] order-[6] /* 모바일: flex:1 30% */ md:w-[20%] md:h-[100px] md:order-[2] lg:w-1/2 lg:order-none"
+      >
+        <p>광고</p>
+      </div>
+
+      <!-- info -->
+      <!-- 모바일: w-7/10, h-100, order-7 -->
+      <!-- 태블릿(md): w-[30%], h-100, order-7 -->
+      <!-- PC(lg): w-1/2, h-100, order-none -->
+      <div
+        class="bg-[navy] text-white flex items-center justify-center w-[70%] h-[100px] order-[7] /* 모바일: flex:1 70% */ md:w-[30%] md:h-[100px] md:order-[7] lg:w-1/2 lg:order-none"
+      >
+        <p>정보</p>
+      </div>
+
+      <!-- footer -->
+      <!-- 모바일: w-full, h-100, order-8 -->
+      <!-- 태블릿(md): w-[70%], h-100, order-8 -->
+      <!-- PC(lg): w-full, h-100, order-none -->
+      <div
+        class="bg-[mediumspringgreen] flex items-center justify-center w-full h-[100px] order-[8] md:w-[70%] md:h-[100px] md:order-[8] lg:w-full lg:order-none"
+      >
+        <p>푸터</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>입력태그의 종류 3</title>
+  </head>
+  <body>
+    <form action="http://wwww.myserver.com">
+      <!-- type: hidden 숨김속성, 사용자에게는 보이지 않고 서버에는 전송 -->
+      <input type="hidden" name="hiddenVal" value="게시물의 아이디값" />
+      <br />
+
+      <!-- 선택목록 태그 : select 태그 -->
+      <select name="drink" id="">
+        <option value="1">콜라</option>
+        <option value="2">사이다</option>
+        <option value="3  ">쥬스</option>
+      </select>
+
+      <!-- 수평선태그 : hr태그 -->
+      <hr />
+      <!-- 색상선택태그 -->
+      <input type="color" name="color" value="##FF0000" />
+      <!-- 색상 표현 : 빛의 3원색 -->
+      <!-- 날짜 선택 태그 -->
+      <input type="date" name="date" value="2025-01-06" />
+
+      <!-- 날짜시간 선택 태그 -->
+      <input
+        type="datetime-local"
+        name="datetime"
+        value="2025-01-06T12:27:00"
+      />
+
+      <!-- email -->
+      <input type="email" name="email" value="abd@gmail.com" />
+      <!-- email multiple -->
+      <input
+        type="email"
+        name="email"
+        value="abd@gmail.com, 123@gmail.com"
+        multiple
+      />
+      <br />
+      <!-- 달 MONTH -->
+      <input type="month" name="month" value="2025-01" />
+      <!-- 숫자 -->
+      <input type="number" value="10" min="5" max="10" step="1" />
+      <!-- 범위 -->
+      <br />
+
+      <input
+        type="range"
+        min="1"
+        max="5"
+        step="1"
+        value="1"
+        oninput="document.getElementById('value').innerText = this.value"
+      />
+      <span id="value">1</span>
+
+      <!-- 많은 양의 텍스트를 입력받을 때 :textarea 태그 -->
+      <textarea name="memo" cols="30" rows="10" id="">
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut, aperiam praesentium nam unde officia beatae perspiciatis molestiae necessitatibus suscipit nesciunt voluptate distinctio, ipsam rerum laudantium dignissimos voluptatem excepturi quis porro!</textarea
+      >
+    </form>
+  </body>
+</html>
