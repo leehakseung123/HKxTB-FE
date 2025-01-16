@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습문제 - 테이블 출력하기</title>
+  </head>
+  <body>
+    <script>
+      document.write("<table border='1'>");
+      document.write("<tr><th>학번</th><th>이름</th><th>국어점수</th></tr>");
+
+      let no1 = prompt("학번을 입력하세요");
+      let name1 = prompt("이름을 입력하세요");
+      let socre1 = prompt("국어점수를 입력하세요");
+      let no2 = prompt("학번을 입력하세요");
+      let name2 = prompt("이름을 입력하세요");
+      let socre2 = prompt("점수를 입력하세요");
+
+      document.write("<tr>");
+      document.write("<td>" + no1 + "</td>");
+      document.write("<td>" + name1 + "</td>");
+      document.write("<td>" + socre1 + "</td>");
+      document.write("</tr>");
+
+      document.write("<tr>");
+      document.write("<td>" + no2 + "</td>");
+      document.write("<td>" + name2 + "</td>");
+      document.write("<td>" + socre2 + "</td>");
+      document.write("</tr>");
+
+      document.write("</table>");
+    </script>
+  </body>
+</html>
