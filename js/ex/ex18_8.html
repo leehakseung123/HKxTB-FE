@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습문제 8번</title>
+  </head>
+  <body>
+    <script>
+      let q,
+        w,
+        e,
+        r,
+        t,
+        y = 0;
+
+      // 첫 번째 숫자
+      q = parseInt(Math.random() * 45 + 1);
+
+      // 두 번째 숫자
+      w = parseInt(Math.random() * 45 + 1);
+      if (w == q) {
+        w = parseInt(Math.random() * 45 + 1);
+      }
+
+      // 세 번째 숫자
+      e = parseInt(Math.random() * 45 + 1);
+      if (e == q || e == w) {
+        e = parseInt(Math.random() * 45 + 1);
+        if (e == q || e == w) {
+          e = parseInt(Math.random() * 45 + 1);
+        }
+      }
+
+      // 네 번째 숫자
+      r = parseInt(Math.random() * 45 + 1);
+      if (r == q || r == w || r == e) {
+        r = parseInt(Math.random() * 45 + 1);
+        if (r == q || r == w || r == e) {
+          r = parseInt(Math.random() * 45 + 1);
+        }
+      }
+
+      // 다섯 번째 숫자
+      t = parseInt(Math.random() * 45 + 1);
+      if (t == q || t == w || t == e || t == r) {
+        t = parseInt(Math.random() * 45 + 1);
+        if (t == q || t == w || t == e || t == r) {
+          t = parseInt(Math.random() * 45 + 1);
+        }
+      }
+
+      // 여섯 번째 숫자
+      y = parseInt(Math.random() * 45 + 1);
+      if (y == q || y == w || y == e || y == r || y == t) {
+        y = parseInt(Math.random() * 45 + 1);
+        if (y == q || y == w || y == e || y == r || y == t) {
+          y = parseInt(Math.random() * 45 + 1);
+        }
+      }
+
+      document.write(q + "<br>");
+      document.write(w + "<br>");
+      document.write(e + "<br>");
+      document.write(r + "<br>");
+      document.write(t + "<br>");
+      document.write(y + "<br>");
+
+      if (y == q || y == w || y == e || y == r || y == t) {
+        document.write("같은 숫자 발생!!!");
+      }
+
+      setTimeout(() => {
+        location.reload();
+      }, 1000);
+    </script>
+  </body>
+</html>

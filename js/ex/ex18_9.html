@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습문제 9번</title>
+  </head>
+  <body>
+    <script>
+      let max = 0;
+      let min = 12;
+
+      for (i = 0; i < 10; i++) {
+        let dice1 = Math.random() * 6 + 1;
+        dice1 = parseInt(dice1);
+        let dice2 = Math.random() * 6 + 1;
+        dice2 = parseInt(dice2);
+        sum = dice1 + dice2;
+        document.write(i + 1 + "번째 두 주사위 합 =>" + sum + "<br>");
+
+        if (sum >= max) {
+          max = sum;
+          f = i + 1;
+        }
+        if (sum <= min) {
+          min = sum;
+          s = i + 1;
+        }
+      }
+      document.write("------------------------<br>");
+      document.write("가장 큰 값 " + f + "번째" + max + "<br>");
+      document.write("가장 작은 값 " + s + "번째" + min);
+    </script>
+  </body>
+</html>

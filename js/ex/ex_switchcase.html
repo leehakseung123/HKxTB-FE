@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습문제-switch case문</title>
+    <!-- 1~10까지의 랜덤한 정수 1개를 발생시키고, 
+   switch문에서 짝수, 홀수 여부를 출력하시오.   -->
+
+    <!-- 주사위를 2개 던져서, 첫번째 주사위는 10의 자리로, 
+   두번째 주사위는 1의 자리로 만들어서 출력하시오 -->
+  </head>
+  <body>
+    <script>
+      let r = Math.random() * 10 + 1;
+      r = parseInt(r);
+      document.write(r + "이고 ");
+
+      switch (true) {
+        case r % 2 == 0:
+          document.write("짝수입니다.");
+          document.write("<br>");
+          break;
+        case r % 2 == 1:
+          document.write("홀수입니다");
+
+        default:
+          document.write("<br>");
+          break;
+      }
+      document.write("<br>");
+
+      let dice = Math.random() * 6 + 1;
+      dice = parseInt(dice);
+      document.write("10의 자리수 : " + dice + "<br>");
+
+      let dice1 = Math.random() * 6 + 1;
+      dice1 = parseInt(dice1);
+      document.write("1의 자리수 : " + dice1 + "<br>");
+      document.write("최종 숫자 : " + dice + dice1);
+    </script>
+  </body>
+</html>
