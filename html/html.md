@@ -200,6 +200,7 @@ _연습문제 - 시 웹페이지 만들기 <sub>ex15</sub>_
   ```
 
 - 입력태그의 종류<sub>ex17, 18, 19</sub>
+
   > label 태그 : 입력태그의 제목 표시  
   > for 속성 : label태그와 input 태그를 연결해주는 역할
   >
@@ -237,3 +238,90 @@ html <input type="color" value=""`
   > 숫자 태그 : `<input type="number" value="10" min="" max="" step=""/>`  
   > 범위 태그 : `<input type="range" value="10" min="" max="" step="" oninput=""/>`  
   > 많은 양의 텍스트를 입력받을 때 : textarea 태그 : `<textarea name="" cols="" rows="" id="">`
+
+- 싸이트 바로가기<sub>ex20</sub>
+  > ```<a href="https://www.naver.com" target="blank">
+  >    <img src="naver.png" alt="네이버 바로가기" width="800px" ?height="auto" />
+  >  </a>
+  > ```
+
+_연습문제 - 입력양식 구현 <sub>ex21</sub>_
+
+- 공간분할 태그 - 컨테이너 태그<sub>ex22</sub>
+
+  > div 태그 : 수평 한 줄을 차지한다. css display : block  
+  > span 태그 : 한칸을 차지한다. css, display : inline-block
+
+- 태그별로 공간분할 타입<sub>ex23</sub>
+
+  > block 속성
+  >
+  > - h1~h6, p ,hr, table, ol, ul, li, form
+  >
+  > inline 속성
+  >
+  > - span, a input, table, text, img, select
+
+- 시멘틱 태그
+
+  > 웹페이지의 공통적인 공간 구성요소를 태그형식으로 분류한 것  
+  > div 태그와 기능적으로 똑같다.
+  >
+  > - header 태그 : 상단공간(헤더)
+  > - nav 태그 : 네비게이션 (메뉴)
+  > - main 태그 : 주 콘텐츠 공간 (section + aside)
+  > - section 태그 : 주된 콘텐츠
+  > - aside : 사이드 (왼쪽, 오른쪽) 공간
+
+- 메타태그 : 문서의 정보를 담고 있는 태그
+  > charset : 문자인코딩 타입 - UTF-8, EUC-KR
+  >
+  > - `<meta charset="UTF-8" /> `
+  >
+  > viewpoart : 모바일해상도 대응  
+  >  device-width : 웹페이지의 너비가 모바일기기 너비와 동일  
+  >  initial-scale : 확대비율 1.0원래비율 2.0 2배확대
+  >
+  > - `<meta name="viewport" content="width=device-width, initial-scale=1.0" /> `
+  >
+  > X-UA-Compatible : 익스플러러 브라우저의 최신버전에 대응  
+  >  ie=edge : IE가 없으면 엣지브라우저로 대치
+  >
+  > - ` <meta http-equiv="X-UA-Compatible" content="ie=edge" />`
+  >
+  > content-type : 콘텐츠의 형식을 알려줌  
+  >  text/html : text기반의 html 콘텐츠이다.  
+  >  text/xml : text기반의 xml 콘텐츠  
+  >  application/json : AOS/IOS 앱과 통신할때 콘텐츠 형식  
+  >  application/json : REST API 서버와 통신할 때
+  >
+  > - `<meta http-equiv="content-type" content="text/html; charset=UTF-8" />`
+  >
+  > keyword : 검색로봇에 의해 검색되는 단어(키워드)를 지정
+  >
+  > - ` <meta name="keyword" content="쇼핑몰, Shop, 과자, 콜라" / >`
+  >
+  > description : 검색로봇에 의해 검색되는 문자열
+  >
+  > - `<meta name="description" content="저의 웹사이트입니다." />`
+  >
+  > noindex : 검색로봇에 검색안되게 함.
+  >
+  > nofollow : 검색로봇이 페이지링크를 따라가지 않도록 함.
+  >
+  > - `<meta name="robots" content="noindex,nofollow" />`
+  >
+  > author : 웹사이트 제작자 표시
+  >
+  > - `<meta http-equiv="author" content="홍길동개발자" />`
+  >   5초 간격으로 새로고침이 됨.
+  >
+  > refresh는 페이지를 다 새로 그림. 깜박거림 발생!
+  >
+  > - `<meta http-equiv="refresh" content="5">`
+  >
+  > - `<meta http-equiv="refresh" content="5; url=http://www.> >  naver.com"> `
+  >
+  > - `<meta http-equiv="refresh" content="1; url=./ex25_4.html" />`
+
+_연습문제 - 테이블 만들기<sub>extable, index, test</sub>_
