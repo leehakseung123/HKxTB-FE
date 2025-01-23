@@ -903,3 +903,63 @@ _연습 문제 <sub>ex38,39,40,41, 42_
 ---
 
 _연습문제 <sub>ex46, 47_
+
+---
+
+- JS로 라디오버튼 확인<sub>ex48
+
+  > 1. 버튼 클릭으로 현재 체크된 라디오 버튼의 정보를 확인(value_check 함수)
+  > 2. 라디오 버튼 변경 이벤트로 바로바로 표시(handleChange 함수)
+  >
+  > - document.getElementsByName("fruit")
+  >
+  >   - 동일한 name 속성을 가진 라디오 버튼들을 배열 형태로 가져옵니다.
+  >   - 반복문(for ... of)을 통해 체크(radio.checked) 여부를 확인합니다.
+  >
+  > - 라디오 버튼의 체크 여부
+  >
+  >   - checked === true 로 선택된 라디오 버튼인지 판별할 수 있습니다.
+  >
+  > - document.getElementById(value).innerText
+  >
+  > - 라디오 버튼의 value와 일치하는 id를 가진 요소(span)의 텍스트를 가져옵니다.
+  > - 예를 들어, value="apple"이면 id="apple" 인 요소를 찾습니다.
+  > - 결과 표시
+  >
+  >   - document.getElementsByTagName("h3") 나  
+  >     document.getElementsByTagName("h4") 등으로 특정 태그를 배열 형태로 가져온 뒤,  
+  >      [인덱스]로 접근하여 .innerText를 변경합니다.
+  >
+  > - 이벤트 바인딩
+  >
+  >   - onchange="handleChange(this)" 와 같이 작성하면, 해당 라디오 버튼이 선택될 때마다 함수가 실행되고,  
+  >     this를 통해 선택된 라디오 DOM 요소를 받아옵니다.
+
+- 입력폼 데이터 유효성 체크하기<sub>ex49
+
+  > onsubmit="return 함수()"
+  >
+  > 함수가 true를 반환하면 폼 전송, false면 전송 취소.  
+  > 검사 후 경고(alert)를 주고 전송을 막거나 통과시킬 수 있음.  
+  > 직접 form.submit() 호출
+  >
+  > 자바스크립트에서 유효성 검사 후, 코드 내에서 form.submit()을 실행해 폼을 전송할 수 있음.  
+  > fetch/API 전송
+  >
+  > 전통적인 폼 전송 대신 비동기 통신(fetch, axios)으로 서버에 요청을 보내고,  
+  > 응답을 받은 뒤 별도의 로직을 추가할 수도 있음.  
+  > 이처럼 입력값의 유효성을 사전에 검사하면 불필요한 서버 요청을 줄이고, 사용자의 잘못된 입력을 초기에 방지할 수 있습니다.
+
+- 메인화면 탭 메뉴 구현<sub>ex50
+
+  > 메인화면 탭 메뉴 구현  
+  > https://dinfree.com/lecture/frontend/123_js_exam.html#q-1  
+  > https://www.w3schools.com/howto/howto_js_tab_header.asp  
+  > "w3schools howto" 구글검색  
+  > HTML / CSS / JS UI템플릿
+
+- 어코디언 UI 구현<sub>ex51
+- Responsive Top Navigation<sub>ex52
+- 페이드인-아웃 애니메이션<sub>ex53
+- 페이지 네비게이션 예제<sub>ex54
+- 파비콘 설정<sub>ex55
