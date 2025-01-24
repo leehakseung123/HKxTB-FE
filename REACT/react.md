@@ -52,3 +52,10 @@
   > ```javascript
   > <script src="https://unpkg.com/@babel/standalone/babel.min.js"> </script>
   > ```
+
+  - 리액트 클래스형 컴퍼넌트 정의
+  - ReactDOM을 이용하여 컴퍼넌트를 root에 렌더링한다.
+
+---
+
+- 별도의 파일로 컴퍼넌트 분리하기<sub>ex05
