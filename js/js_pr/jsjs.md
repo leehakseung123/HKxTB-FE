@@ -955,3 +955,93 @@ console.log(c(10));
 
 1위 ~ 3위 학생은 여러명일 수 있고 1~3위 학생 중 중복되는 학생까지 포함하여 사탕을 사기로 한다.  
 **학생들의 점수를 공백으로 구분하여 입력을 받고 사탕을 받을 학생의 수를 출력하세요.**
+
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>36번</title>
+    <script>
+      const score = prompt("공백으로 구분하여 점수를 입력하시오").split(" ");
+      for (let i = 0; i < score.length; i++) {
+        document.write(score[i] + "점 / ");
+      }
+      let st = 0;
+      let stn = 1;
+      let nd = 0;
+      let ndn = 1;
+      let rd = 0;
+      let rdn = 1;
+      for (i = 0; i < score.length; i++) {
+        if (st <= score[i]) {
+          st = score[i];
+          if (st == score[i + 1]) {
+            stn++;
+          }
+        }
+      }
+
+      for (i = 0; i < score.length; i++) {
+        if (score[i] < st && score[i] >= nd) {
+          nd = score[i];
+          if (nd == score[i + 1]) {
+            ndn++;
+          }
+        }
+      }
+
+      for (i = 0; i < score.length; i++) {
+        if (score[i] < nd && score[i] >= rd) {
+          rd = score[i];
+          if (rd == score[i + 1]) {
+            rdn++;
+          }
+        }
+      }
+
+      // 결과 출력
+      document.write("<br>1등: " + st + "점 " + stn + "명<br>");
+      document.write("2등: " + nd + "점 " + ndn + "명<br>");
+      document.write("3등: " + rd + "점 " + rdn + "명<br>");
+    </script>
+  </head>
+  <body></body>
+</html>
+```
+
+![alt text](36.png)
+
+# 문제37 : 오타 수정하기
+
+혜원이는 평소 영타가 빠르고 정확한 것을 친구들에게 자랑하고 다녔습니다.  
+반 친구들이 혜원이의 타자 속도가 빠르다는 것을 모두 알게 되자 혜원이는 모두의 앞에서 타자 실력을 보여주게 됩니다.
+
+그런데 막상 보여주려니 긴장이 되서 문장의 모든 e를 q로 잘못 친 것을 발견했습니다.  
+혜원이는 프로그램을 돌려 재빠르게 모든 q를 e로 바꾸는 프로그램을 작성하려고 합니다.
+
+**문장이 입력되면 모든 q를 e로 바꾸는 프로그램을 작성해 주세요.**
+
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>37번</title>
+    <script>
+      const input = prompt("문장을 입력하세요.");
+
+      if (input !== null) {
+        const result = input.replace(/q/g, "e");
+
+        alert("결과: " + result);
+      } else {
+        alert("입력이 취소되었습니다.");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
+```
