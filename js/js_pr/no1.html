@@ -3,9 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>31번</title>
+    <title>36번</title>
     <script>
-      let input = prompt("키를 입력하세요.").split(" ");
+      const score = prompt("공백으로 구분하여 점수를 입력하시오").split(" ");
+      for (let i = 0; i < score.length; i++) {
+        document.write(score[i] + "점 / ");
+      }
+      let st = 0;
+      let stn = 1;
+      let nd = 0;
+      let ndn = 1;
+      let rd = 0;
+      let rdn = 1;
+      for (i = 0; i < score.length; i++) {
+        if (st <= score[i]) {
+          st = score[i];
+          if (st == score[i + 1]) {
+            stn++;
+          }
+        }
+      }
+
+      for (i = 0; i < score.length; i++) {
+        if (score[i] < st && score[i] >= nd) {
+          nd = score[i];
+          if (nd == score[i + 1]) {
+            ndn++;
+          }
+        }
+      }
+
+      for (i = 0; i < score.length; i++) {
+        if (score[i] < nd && score[i] >= rd) {
+          rd = score[i];
+          if (rd == score[i + 1]) {
+            rdn++;
+          }
+        }
+      }
+
+      // 결과 출력
+      document.write("<br>1등: " + st + "점 " + stn + "명<br>");
+      document.write("2등: " + nd + "점 " + ndn + "명<br>");
+      document.write("3등: " + rd + "점 " + rdn + "명<br>");
     </script>
   </head>
   <body></body>

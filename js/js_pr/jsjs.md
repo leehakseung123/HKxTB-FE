@@ -810,3 +810,148 @@ apple
 
 민주를 위해 **키가 주어지면 순서대로 제대로 섰는지 확인하는 프로그램**을 작성해보자.  
 (키는 공백으로 구분하여 입력됩니다.)
+
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>32번</title>
+    <script>
+      let input = prompt("키를 입력하세요.").split(" ");
+
+      for (i = 0; i < input.length; i++) {
+        if (input[i] > input[i + 1]) {
+          document.write("X");
+          break;
+        }
+        document.write("O");
+        break;
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
+```
+
+# 문제33 : Factory 함수 사용하기
+
+2제곱, 3제곱, 4제곱을 할 수 있는 Factory 함수를 만들려고 합니다.
+
+/_빈칸_/에 코드를 작성하여 two함수를 완성하세요.
+
+```javascript
+function one(n) {
+  function two(value) {
+    const sq = Math.pow(value, n);
+    return sq;
+  }
+  return two;
+}
+
+const a = one(2);
+const b = one(3);
+const c = one(4);
+
+console.log(a(10));
+console.log(b(10));
+console.log(c(10));
+```
+
+# 문제34 : 구구단 출력하기
+
+1~9까지의 숫자 중 하나를 입력하면 그 단의 구구단 결과를 한 줄에 출력하는 프로그램을 작성하세요.
+
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>34번</title>
+    <script>
+      let num = prompt("1~9 사이의 숫자 하나를 입력하세요.");
+      num = parseInt(num);
+      if (num >= 1 && num <= 9) {
+        for (let i = 1; i <= 9; i++) {
+          document.write(num + " 곱하기 " + i + " = " + num * i + "<br>");
+        }
+      } else {
+        alert("잘못된 숫자입니다.");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
+```
+
+![alt text](34.png)
+
+# 문제35 : 반장 선거
+
+새 학기를 맞아 호준이네 반은 반장 선거를 하기로 했습니다. <br> 그런데 표를 하나씩 개표하는 과정이 너무 번거롭게 느껴진 당신은 <br>**학생들이 뽑은 후보들을 입력받으면 뽑힌 학생의 이름과 받은 표 수를 출력하는 프로그램**을 작성하기로 하였습니다.
+
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>35번</title>
+    <script>
+      window.onload = function () {
+        let a = 0,
+          b = 0,
+          c = 0;
+        while (true) {
+          let num = prompt(
+            "기호 1번, 2번, 3번 숫자만 입력하세요. (종료하려면 0 입력)"
+          );
+          if (num === null || num.trim() === "") {
+            alert("입력이 취소되었거나 잘못되었습니다.");
+            continue;
+          }
+          num = parseInt(num);
+          if (isNaN(num)) {
+            alert("숫자를 입력하세요.");
+            continue;
+          }
+          switch (num) {
+            case 1:
+              a++;
+              break;
+            case 2:
+              b++;
+              break;
+            case 3:
+              c++;
+              break;
+            case 0:
+              document.write("투표 종료 <br>");
+              document.write("기호 1번: " + a + " 표 획득<br>");
+              document.write("기호 2번: " + b + " 표 획득<br>");
+              document.write("기호 3번: " + c + " 표 획득<br>");
+              return;
+            default:
+              alert("잘못된 번호입니다.");
+              break;
+          }
+        }
+      };
+    </script>
+  </head>
+  <body></body>
+</html>
+```
+
+![alt text](35.png)
+
+# 문제36 : 호준이의 아르바이트
+
+호준이는 아르바이트로 영어 학원에서 단어 시험지를 채점하는 일을 하고 있다.  
+ 호준이가 일하는 학원은 매번 1위부터 3위까지의 학생에게 상으로 사탕을 준다.  
+ 그런데 오늘은 마침 사탕이 다 떨어져서 호준이가 채점을 하고 점수를 보내면, 당신이 아이들의 숫자만큼 사탕을 사러 가기로 했다.
+
+1위 ~ 3위 학생은 여러명일 수 있고 1~3위 학생 중 중복되는 학생까지 포함하여 사탕을 사기로 한다.  
+**학생들의 점수를 공백으로 구분하여 입력을 받고 사탕을 받을 학생의 수를 출력하세요.**
