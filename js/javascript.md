@@ -572,7 +572,7 @@ _연습문제 - for문 사용 <sub>ex18</sub>_
   > 문자열길이
   >
   > ```javascript
-  > console.log(string3.length);
+  > console.log(string3.);
   > ```
   >
   > 대문자변경
