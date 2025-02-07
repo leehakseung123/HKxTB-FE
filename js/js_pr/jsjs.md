@@ -1045,16 +1045,18 @@ console.log(c(10));
   <body></body>
 </html>
 ```
+
 # 문제38 : 놀이동산에 가자
 
 테마파크에 온 원범이와 친구들은 놀이기구를 타려고 합니다.  
-모든 놀이기구는 한번에 타는 인원수에는 제한이 없지만 제한 무게를 넘으면 무조건 다음 기구를 타야 합니다. 
+모든 놀이기구는 한번에 타는 인원수에는 제한이 없지만 제한 무게를 넘으면 무조건 다음 기구를 타야 합니다.
 
 **원범이와 친구들이 총 몇 명 탈 수 있는지 알 수 있는 프로그램을 작성해 주세요.**
 
 첫번째 입력으로 제한 무게가 주어지고 두번째 입력으로는 함께한 친구들의 수 n이 주어집니다.  
 그 다음 차례대로 탑승할 친구들의 몸무게가 주어집니다.  
 몸무게는 무작위로 주어집니다.
+
 ```javascript
 <!DOCTYPE html>
 <html lang="en">
@@ -1075,12 +1077,14 @@ console.log(s);
   <body></body>
 </html>
 ```
+
 # 문제39 : for를 이용한 기본 활용
 
-1부터 100까지 모두 더하는 Code를 빈칸/* */ 부분에 완성하세요.   
+1부터 100까지 모두 더하는 Code를 빈칸/\* \*/ 부분에 완성하세요.  
  `for`를 사용해야 합니다.
- ```javascript
- let s = 0;
+
+```javascript
+let s = 0;
 
 for (let i = 1; i <= 100; i++) {
   s += i;
@@ -1088,7 +1092,132 @@ for (let i = 1; i <= 100; i++) {
 
 console.log(s);
 ```
+
 # 문제40 : 꽃이름을 말해주세요 - 배열의 foreach()함수
 
 1. foreach()함수를 이용하여 names 배열의 모든 요소를 출력하시오.
-2. names 배열의 요소 중에서 가장 긴 단어를 출력하시오.  
+2. names 배열의 요소 중에서 가장 긴 단어를 출력하시오.
+
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>40번</title>
+    <script>
+      let names = ["장미", "수선화", "코스모스"];
+
+      let longestWord = "";
+      let maxLength = 0;
+
+      names.forEach((flower) => {
+        console.log(flower);
+
+        if (flower.length > maxLength) {
+          maxLength = flower.length;
+          longestWord = flower;
+        }
+      });
+
+      console.log(`\n가장 긴 단어는 ${longestWord}입니다.`);
+    </script>
+  </head>
+  <body></body>
+</html>
+```
+
+![alt text](40.png)
+
+# 문제41 : 소수판별
+
+숫자가 주어지면 **소수인지 아닌지 판별하는 프로그램**을 작성해주세요.  
+소수이면 YES로, 소수가 아니면 NO로 출력해주세요.  
+(소수 : 1과 자기 자신만으로 나누어떨어지는 1보다 큰 양의 정수)
+
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>41번</title>
+    <script>
+      let nums = prompt("자연수를 입력해주세요");
+      nums = parseInt(nums);
+      if (nums == 1) {
+        alert("1을 왜넣냐");
+      } else if (nums == 2) {
+        alert("유일한 짝수인 소수");
+      } else {
+        for (i = 2; i < nums; i++) {
+          if (nums % i == 0) {
+            alert("소수가 아닙니다.");
+          } else {
+            alert("소수입니다.");
+          }
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
+```
+
+# 문제42 : 2020년
+
+2020년 1월 1일은 수요일입니다. 2020년 a월 b일은 무슨 요일일까요?  
+두 수 a, b를 입력받아 2020년 a월 b일이 무슨 요일인지 리턴하는 함수 solution을 완성하세요.  
+요일의 이름은 일요일부터 토요일까지 각각 SUN, MON, TUE, WED, THU, FRI, SAT 입니다.
+
+예를 들어 a = 5, b = 24라면 5월 24일은 일요일이므로 문자열 "SUN"를 반환하세요.
+
+**제한 조건**
+2020년은 윤년입니다.  
+2020년 a월 b일은 실제로 있는 날입니다.  
+(13월 26일이나 2월 45일 같은 날짜는 주어지지 않습니다.)
+
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>42번</title>
+    <script>
+      function getDay2020(a, b) {
+        const days = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        const daysname = [
+          "수요일",
+          "목요일",
+          "금요일",
+          "토요일",
+          "일요일",
+          "월요일",
+          "화요일",
+        ];
+
+        let totaldays = 0;
+
+        for (let i = 0; i < a - 1; i++) {
+          totaldays += days[i];
+        }
+        totaldays += b - 1;
+        dayIndex = totaldays % 7;
+        return daysname[dayIndex];
+      }
+
+      const TodayDate = prompt(
+        "2020년 ★월 ○일 을 공백으로 나누어 적어주세요. \n 예) 5 24"
+      );
+
+      const [a, b] = TodayDate.split(" ").map(Number);
+
+      const answer = getDay2020(a, b);
+
+      alert(`2020년 ${a}월 ${b}일은 ${answer} 입니다.`);
+    </script>
+  </head>
+  <body></body>
+</html>
+```

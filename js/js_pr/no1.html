@@ -3,23 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>40번</title>
+    <title>42번</title>
     <script>
-      let names = ["장미", "수선화", "코스모스"];
+      function getDay2020(a, b) {
+        const days = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        const daysname = [
+          "수요일",
+          "목요일",
+          "금요일",
+          "토요일",
+          "일요일",
+          "월요일",
+          "화요일",
+        ];
 
-      let longestWord = "";
-      let maxLength = 0;
+        let totaldays = 0;
 
-      names.forEach((flower) => {
-        console.log(flower);
-
-        if (flower.length > maxLength) {
-          maxLength = flower.length;
-          longestWord = flower;
+        for (let i = 0; i < a - 1; i++) {
+          totaldays += days[i];
         }
-      });
+        totaldays += b - 1;
+        dayIndex = totaldays % 7;
+        return daysname[dayIndex];
+      }
 
-      console.log(`\n가장 긴 단어는 ${longestWord}입니다.`);
+      const TodayDate = prompt(
+        "2020년 ★월 ○일 을 공백으로 나누어 적어주세요. \n 예) 5 24"
+      );
+
+      const [a, b] = TodayDate.split(" ").map(Number);
+
+      const answer = getDay2020(a, b);
+
+      alert(`2020년 ${a}월 ${b}일은 ${answer} 입니다.`);
     </script>
   </head>
   <body></body>
