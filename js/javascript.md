@@ -647,7 +647,8 @@ _연습문제 - for문 사용 <sub>ex18</sub>_
   >      console.log(concated);
   > ```
   >
-  > 좌우끝 공백 제거 trim
+  > `trim()` 함수는 문자열의 앞뒤 공백(whitespace)을 제거하는 메서드이다.  
+  > 원본 문자열은 변경되지 않으며, 새로운 문자열을 반환한다.
   >
   > ```javascript
   > let string8 = "  This is java script  ";
@@ -969,5 +970,59 @@ _연습문제 <sub>ex46, 47_
 - 페이지 네비게이션 예제<sub>ex54
 - 파비콘 설정<sub>ex55
 
-- 팩토리 함수 (Factory Function)
-  > 팩토리 함수는 객체를 생성하는 함수로, new 키워드를 사용하지 않고 객체를 반환하는 함수 <br>주로 객체 생성 로직을 재사용하거나, 다수의 유사한 객체를 효율적으로 생성할 때 사용
+- 팩토리 함수 (Factory Function) <sub>ex23-1<sub>
+
+  > 팩토리 함수는 new 키워드 없이 객체를 생성하는 함수이다.  
+  > 주로 유사한 객체를 여러 개 만들 때 사용하며, 코드 재사용성과 유지보수성을 높일 수 있다.
+
+  - 기본 팩토리 함수 사용법
+
+    ```javascript
+    function createUser(name, age) {
+      return {
+        name,
+        age,
+        greet() {
+          console.log(`안녕하세요! 저는 ${this.name}이고, ${this.age}살입니다.`);
+        }
+      };
+    }
+
+    const user1 = createUser("홍길동", 25);
+    const user2 = createUser("김철수", 30);
+
+    user1.greet(); // 안녕하세요! 저는 홍길동이고, 25살입니다.
+    user2.greet(); // 안녕하세요! 저는 김철수이고, 30살입니다.
+    ```
+
+  - 팩토리 함수의 장점
+    - `new` 키워드를 사용하지 않으므로 실수를 방지할 수 있음.
+    - 객체 생성 로직을 캡슐화하여 코드의 가독성과 유지보수성을 높일 수 있음.
+    - 클로저(Closure)를 활용하여 private 변수를 만들 수 있음.
+
+  - 클로저를 활용한 팩토리 함수
+
+    ```javascript
+    function createCounter() {
+      let count = 0;
+      return {
+        increment() {
+          count++;
+          console.log(count);
+        },
+        decrement() {
+          count--;
+          console.log(count);
+        }
+      };
+    }
+
+    const counter = createCounter();
+    counter.increment(); // 1
+    counter.increment(); // 2
+    counter.decrement(); // 1
+    ```
+
+  - 객체 지향 프로그래밍과 비교
+    - 클래스(Class)를 사용하여 객체를 생성하는 방법과 비교했을 때, 팩토리 함수는 더 유연한 객체 생성 패턴을 제공함.
+    - 클로저를 활용하여 private 속성을 쉽게 만들 수 있음.
