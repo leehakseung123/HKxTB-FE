@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body 스타일링: 전체 페이지 배경색 및 여백 제거 */
+body {
+  @apply bg-cyan-200 min-h-screen;
+  font-family: 'Nanum Gothic', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* 기본 제목 스타일 */
+h1, h2, h3 {
+  @apply text-gray-800 font-bold;
+}
+
+/* 링크 스타일 */
+a {
+  @apply text-blue-500 hover:underline;
+}
+
+/* Footer 링크 커스텀 스타일 */
+footer a {
+  @apply text-black hover:text-gray-600;
+}
