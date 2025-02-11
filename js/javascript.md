@@ -303,46 +303,94 @@ _연습문제 - for문 사용 <sub>ex18</sub>_
   > - 대괄호를 이용한Araay 객체를 이용한 방법
   >
   > ```html
-  > let nums1 = [10, 20, 30]; let nums2 = []; // njum2[0] = 10; num2.push(10);
-  > num2.push(20); num2.push(30);
+  > - let nums1 = [10, 20, 30]; - let nums2 = []; - njum2[0] = 10; -
+  > num2.push(10); - num2.push(20); - num2.push(30);
   > ```
   >
   > - Array 객체를 이용한Araay 객체를 이용한 방법  
   >    new : 객체생성시 사용하는 예약어  
   >   객체 (object) : 코드로 정의(클래스, 함수)된 메모리에 적재 후 활성화 된 상태. 인스턴스
   >
+  >   - new Array() 사용 : new 키워드는 객체를 생성하는 예약어  
+  >      생성된 인스턴스는 Array 포로토타입 메서드와 속성을 상속받는다.
+  >
+  >   1. 생성자 함수를 통한 배열 생성
+  >
+  >      ```javascript
+  >      let arr = new Array();
+  >      console.log(typeof arr);
+  >      console.log(arr instanceof Array);
+  >
+  >      arr.push("수박", "망고", "바나나");
+  >      console.log(arr);
+  >      ```
+  >
+  >   2. 길이가 5인 빈 배열 생성
+  >
   >   ```javascript
-  >   let arr = new Array(); // 생성자 함수
-  >   console.log(typeof arr);
-  >   console.log(arr instanceof Array);
-  >   arr.push("수박", "망고", "바나나");
-  >   console.log(arr);
-  >   let arr2 = new Array(5); //길이가 5인 빈배열
+  >   let arr2 = new Array(5);
   >   console.log(arr2.length);
   >   console.log(arr2[0]);
+  >   ```
+  >
+  >   3. 여러개의 인자를 받으면 그 인자들을 요소로 간지는 배열
+  >
+  >   ```javascript
   >   let arr3 = new Array(1, 2, 3, 4, 5);
   >   console.log(arr3); //Array.of 사용
-  >   let arr4 = Array.of(5); //데이터 5 길이 1인 배열
-  >   console.log(arr4);
+  >   ```
+  >
+  >   - Array.of() : 인자로 받은 모든 값을 그대로 요소로 갖는 배열을 생성
+  >
+  >   1. 단 하나나의 숫자 5를 요소로 갖는 배열
+  >      ```javascript
+  >      let arr4 = Array.of(5); //데이터 5 길이 1인 배열
+  >      console.log(arr4);
+  >      ```
+  >   2. 여러 인자를 요소로 갖는 배열
+  >
+  >   ```javascript
   >   let arr5 = Array.of(1, 2, 3, 4, 5);
   >   console.log(arr5); //Array.from 사용
+  >   ```
+  >
+  >   - Array.from()으로 배열 생성 : 배열 또는 유사 배열 객체 및 반복 가능한 객체를 새로운 배열로 반들어줌
+  >
+  >   1. 문자열을 배열로 변환
+  >
+  >   ```javascript
   >   let arr6 = Array.from("hello");
   >   console.log(arr6); //['h', 'e', 'l', 'l', 'o']
   >   ```
   >
-  > - 집합 Set : 중복허용을 하지 않는 자료구조
-  >   - 순번(인덱스)이 없고 키 값도 없는 구조
-  >   - 중복되지 않는 데이터: Key값, Index 용도
-  >   ```javascript
-  >   let arr7 = Array.from(new Set([1, 2, 3]));
-  >   console.log(arr7); // [1, 2, 3]
-  >   ```
-  > - 매핑 함수를 적용한 배열
-  >
-  > ```javascript
-  > let arr8 = Array.from([1, 2, 3], (x) => x * 2);
-  > console.log(arr8);
-  > ```
+  >   - 매핑 함수를 인자로 전잘하여 변환과정에서 조건 적용
+  >     ```javascript
+  >     let arr8 = Array.from([1, 2, 3], (x) => x * 2);
+  >     console.log(arr8);
+  >     ```
+
+  - Set (집합)
+
+    - 특징 : 중복허용 X, 순번이 없고 별도의 키가 없음, 값이 중복되지 않음이 보장되어야할 떄 유용
+
+    ```javascript
+    //[1, 2, 3]에서 중복된 값 제거
+    let arr7 = Array.from(new Set([1, 2, 4]));
+    console.log(arr7);
+    ```
+
+    - Set 내부에 중복된 값이 들어가면 자동으로 제거됨
+    - 배열로 다시 변환할 때는 Array.from() 또는 Spread 문법(...) 사용
+      <br>
+    - Set의 주요 메서드
+
+    | 메서드         | 설명                                            |
+    | :------------- | :---------------------------------------------- |
+    | add (value)    | 새로운 값을 Set의 추가                          |
+    | has (value)    | 특정 값이 Set 내에 존재하는지 확인              |
+    | delete (value) | 특정 값을 Set에서 삭제                          |
+    | clear()        | Set 내 모든값을 한 번에 제거                    |
+    | size           | Set 내에 저장된 요소의 개수를 반환하는 프로퍼티 |
 
 ---
 
@@ -357,7 +405,8 @@ _연습문제 - for문 사용 <sub>ex18</sub>_
   > shift() : 맨 처음 지우기  
   > contact() : 배열을 결함  
   > sort() : 정렬, 오름차순  
-  > reverse() : 역정렬, 내림차순
+  > reverse() : 역정렬, 내림차순  
+  > join() : 배열의 모든 요소를 하나의 문자열로 결합할 때 사용하는 메서드
 
   - 값 타입 변수 vs 참조 타입 변수
     - 값 타입은 메모리 공간에 실제 값을 가짐
@@ -983,8 +1032,10 @@ _연습문제 <sub>ex46, 47_
         name,
         age,
         greet() {
-          console.log(`안녕하세요! 저는 ${this.name}이고, ${this.age}살입니다.`);
-        }
+          console.log(
+            `안녕하세요! 저는 ${this.name}이고, ${this.age}살입니다.`
+          );
+        },
       };
     }
 
@@ -996,6 +1047,7 @@ _연습문제 <sub>ex46, 47_
     ```
 
   - 팩토리 함수의 장점
+
     - `new` 키워드를 사용하지 않으므로 실수를 방지할 수 있음.
     - 객체 생성 로직을 캡슐화하여 코드의 가독성과 유지보수성을 높일 수 있음.
     - 클로저(Closure)를 활용하여 private 변수를 만들 수 있음.
@@ -1013,7 +1065,7 @@ _연습문제 <sub>ex46, 47_
         decrement() {
           count--;
           console.log(count);
-        }
+        },
       };
     }
 
