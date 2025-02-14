@@ -1290,3 +1290,100 @@ console.log(s);
   <body></body>
 </html>
 ```
+# 문제45 : getTime()함수 사용하기
+
+Date객체의 메소드 중 하나인 getTime()은 1970년 1월 1일 0시 0분 0초 이후로부터 지금까지 흐른 시간을 천분의 1초 단위(ms)로 반환합니다.
+
+이를 이용하여 **현재 연도(2019)를 출력해보세요.**
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>45번</title>
+    <script>
+      var now = new Date();
+
+      var currentTime = now.getTime();
+
+      var currentYear = new Date(currentTime).getFullYear();
+
+      console.log(currentYear);
+    </script>
+  </head>
+  <body></body>
+</html>
+```
+# 문제46 : 각 자리수의 합 2
+
+1부터 20까지의(20을 포함) 모든 숫자를 일렬로 놓고 모든 자릿수의 총 합을 구하세요. 
+
+예를 들어 10부터 15까지의 모든 숫자를 일렬로 놓으면 101112131415이고  
+각 자리의 숫자를 더하면 21입니다. (1+0+1+1+1+2+1+3+1+4+1+5 = 21)
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>46번</title>
+    <script>
+      const num = [];
+      let sum = 0;
+      for (i = 0; i < 20; i++) {
+        j = i + 1;
+        sum += j;
+        num[i] = j;
+      }
+
+      document.write(num.join(""));
+
+      document.write("<br>");
+      document.write(sum);
+    </script>
+  </head>
+  <body></body>
+</html>
+```
+![alt text](image.png)
+
+# 문제47 : set 자료형의 응용
+
+바울랩에서는 3월 29일 제주대학교에서 '제주 빅데이터 사회혁신 해커톤' 행사를 주최하게 되었습니다.  
+이에 구글 설문지를 배포하였으나 제주대학생들이 중복해서 n개씩 설문지를 제출하였습니다.  
+**중복된 데이터들을 삭제하여 실제 접수 명단이 몇 명인지 알고 싶습니다.**  
+
+아래 주어진 데이터들로부터 중복을 제거하여 **실제 접수 인원을 출력**해 주세요.
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>47번</title>
+    <script>
+      const people = {
+        이호준: "01050442903",
+        이호상: "01051442904",
+        이준호: "01050342904",
+        이호준: "01050442903",
+        이준: "01050412904",
+        이호: "01050443904",
+        이호준: "01050442903",
+      };
+      let result = new Set();
+      for (let key in people) {
+        result.add(people[key]);
+      }
+      console.log(result.size);
+    </script>
+  </head>
+  <body></body>
+</html>
+```
+![alt text](47'.png)
+
+# 문제48 : 대소문자 바꿔서 출력하기
+
+문자열이 주어지면 대문자와 소문자를 바꿔서 출력하는 프로그램을 작성하세요.

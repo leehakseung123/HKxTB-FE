@@ -3,17 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>44번</title>
+    <title>47번</title>
     <script>
-      let n = prompt("숫자를 입력하세요.");
-      let sum = 0;
-
-      while (n !== 0) {
-        sum += n % 10;
-        n = Math.floor(n / 10);
+      const text = prompt("영어 입력");
+      let uptext = [];
+      for (i = 0; i < text.length; i++) {
+        if (text[i] == text[i].toUpperCase()){
+          text[i] = text[i].toLowerCase();
+        } else {
+          
+        }
       }
 
-      console.log(sum);
+     
     </script>
   </head>
   <body></body>
